@@ -15,7 +15,7 @@ docs/                  本次训练运行记录
 artifacts/bert-base-v2/ 模型配置、tokenizer、阈值和实验报告；权重从 Release 附件解压
 ```
 
-仓库不包含原 `jev-train` 的题库、通用训练框架、旧 v1 模型或原始的 1.2 GB 数据归档。完整 v2 权重文件 `model.pt` 约 411 MB，超过 GitHub 普通文件限制，因此通过 `v0.1.0` GitHub Release 的模型包附件提供，文件名为 `bert-security-v2-1791770771.tar.gz`；其他配置及 tokenizer 同时留在仓库中。
+完整 v2 权重文件 `model.pt` 约 411 MB，超过 GitHub 普通文件限制，因此通过 `v0.1.0` GitHub Release 的模型包附件提供，文件名为 `bert-security-v2-1791770771.tar.gz`；其他配置及 tokenizer 同时留在仓库中。
 
 ## 环境与安装
 
