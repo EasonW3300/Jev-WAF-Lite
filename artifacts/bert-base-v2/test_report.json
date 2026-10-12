@@ -1,0 +1,3138 @@
+{
+  "model_version": "bert-security-v2-1791770771",
+  "split": "independent_test",
+  "data_sha256": "aeb0730f7ccb383c9951326ec61a07a80b9f9af394c585cd9d2708d3b9469c13",
+  "test_used_once": true,
+  "support": {
+    "normal": 5072,
+    "normal_sites": 55,
+    "SQL注入": 391,
+    "XSS": 391,
+    "路径遍历": 178,
+    "其他攻击": 389
+  },
+  "minimums_met": true,
+  "offline_gate_passed": true,
+  "production_validated": false,
+  "policy": {
+    "block_temperature": 1.4939861346304952,
+    "block_bias": -0.06251934215249585,
+    "type_temperature": 1.458338077741104,
+    "threshold": 0.12603080864764163,
+    "max_fpr": 0.01,
+    "fpr": 0.006254886630179828,
+    "recall": 0.9869888475836431,
+    "status": "offline_experiment_only"
+  },
+  "metrics": {
+    "block": {
+      "support": 6421,
+      "positives": 1349,
+      "confusion": {
+        "tp": 1300,
+        "fp": 35,
+        "tn": 5037,
+        "fn": 49
+      },
+      "precision": 0.9737827715355806,
+      "recall": 0.9636767976278725,
+      "fpr": 0.006900630914826498,
+      "pr_auc": 0.9910567049550242,
+      "fpr_wilson_95": [
+        0.004966064690576014,
+        0.00958156439117435
+      ],
+      "brier": 0.011408654296595955,
+      "ece_10": 0.009071416380506805
+    },
+    "choice": {
+      "known_support": 1349,
+      "top1_accuracy": 0.9592290585618977,
+      "end_to_end_recall": 0.9488510007412898,
+      "ece_10": 0.02199646051068848,
+      "by_type": {
+        "SQL注入": {
+          "positive_support": 391,
+          "choice_accuracy": 0.9769820971867008,
+          "end_to_end_recall": 0.9744245524296675,
+          "status": "evaluated"
+        },
+        "XSS": {
+          "positive_support": 391,
+          "choice_accuracy": 0.9820971867007673,
+          "end_to_end_recall": 0.9641943734015346,
+          "status": "evaluated"
+        },
+        "路径遍历": {
+          "positive_support": 178,
+          "choice_accuracy": 0.9719101123595506,
+          "end_to_end_recall": 0.9719101123595506,
+          "status": "evaluated"
+        },
+        "其他攻击": {
+          "positive_support": 389,
+          "choice_accuracy": 0.9125964010282777,
+          "end_to_end_recall": 0.897172236503856,
+          "status": "evaluated"
+        }
+      }
+    },
+    "by_site": {
+      "akstat.io": {
+        "support": 35,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 35,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "asos.com": {
+        "support": 163,
+        "positives": 63,
+        "confusion": {
+          "tp": 62,
+          "fp": 2,
+          "tn": 98,
+          "fn": 1
+        },
+        "precision": 0.96875,
+        "recall": 0.9841269841269841,
+        "fpr": 0.02,
+        "pr_auc": 0.9995115995115995
+      },
+      "bergdorfgoodman.com": {
+        "support": 136,
+        "positives": 36,
+        "confusion": {
+          "tp": 36,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "bilibili.com": {
+        "support": 111,
+        "positives": 11,
+        "confusion": {
+          "tp": 11,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "bodybuilding.com": {
+        "support": 103,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "bollandbranch.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "dietdoctor.com": {
+        "support": 115,
+        "positives": 15,
+        "confusion": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 0.9375,
+        "recall": 1.0,
+        "fpr": 0.01,
+        "pr_auc": 0.981498778998779
+      },
+      "elal.com": {
+        "support": 123,
+        "positives": 26,
+        "confusion": {
+          "tp": 22,
+          "fp": 6,
+          "tn": 91,
+          "fn": 4
+        },
+        "precision": 0.7857142857142857,
+        "recall": 0.8461538461538461,
+        "fpr": 0.061855670103092786,
+        "pr_auc": 0.9530760529063697
+      },
+      "epicgames.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 0.0,
+        "recall": null,
+        "fpr": 0.01,
+        "pr_auc": null
+      },
+      "fandom.com": {
+        "support": 77,
+        "positives": 7,
+        "confusion": {
+          "tp": 6,
+          "fp": 0,
+          "tn": 70,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.8571428571428571,
+        "fpr": 0.0,
+        "pr_auc": 0.9404761904761905
+      },
+      "finishline.com": {
+        "support": 112,
+        "positives": 12,
+        "confusion": {
+          "tp": 11,
+          "fp": 0,
+          "tn": 100,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.9166666666666666,
+        "fpr": 0.0,
+        "pr_auc": 0.926470588235294
+      },
+      "flannels.com": {
+        "support": 146,
+        "positives": 48,
+        "confusion": {
+          "tp": 46,
+          "fp": 0,
+          "tn": 98,
+          "fn": 2
+        },
+        "precision": 1.0,
+        "recall": 0.9583333333333334,
+        "fpr": 0.0,
+        "pr_auc": 0.9900808936825886
+      },
+      "footlocker.com": {
+        "support": 120,
+        "positives": 20,
+        "confusion": {
+          "tp": 20,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "gap.com": {
+        "support": 159,
+        "positives": 60,
+        "confusion": {
+          "tp": 59,
+          "fp": 0,
+          "tn": 99,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.9833333333333333,
+        "fpr": 0.0,
+        "pr_auc": 0.9984848484848485
+      },
+      "godaddy.com": {
+        "support": 177,
+        "positives": 78,
+        "confusion": {
+          "tp": 75,
+          "fp": 1,
+          "tn": 98,
+          "fn": 3
+        },
+        "precision": 0.9868421052631579,
+        "recall": 0.9615384615384616,
+        "fpr": 0.010101010101010102,
+        "pr_auc": 0.9944679420038672
+      },
+      "hostgator.com": {
+        "support": 119,
+        "positives": 20,
+        "confusion": {
+          "tp": 19,
+          "fp": 0,
+          "tn": 99,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.95,
+        "fpr": 0.0,
+        "pr_auc": 0.9976190476190476
+      },
+      "icloud.com": {
+        "support": 125,
+        "positives": 25,
+        "confusion": {
+          "tp": 23,
+          "fp": 0,
+          "tn": 100,
+          "fn": 2
+        },
+        "precision": 1.0,
+        "recall": 0.92,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "ionos.com": {
+        "support": 136,
+        "positives": 37,
+        "confusion": {
+          "tp": 36,
+          "fp": 1,
+          "tn": 98,
+          "fn": 1
+        },
+        "precision": 0.972972972972973,
+        "recall": 0.972972972972973,
+        "fpr": 0.010101010101010102,
+        "pr_auc": 0.9918329206087555
+      },
+      "jet2.com": {
+        "support": 102,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "jumia.com": {
+        "support": 91,
+        "positives": 16,
+        "confusion": {
+          "tp": 16,
+          "fp": 0,
+          "tn": 75,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "lastminute.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "lazada.com": {
+        "support": 1,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "lennylarry.com": {
+        "support": 99,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "lightinthebox.com": {
+        "support": 160,
+        "positives": 60,
+        "confusion": {
+          "tp": 59,
+          "fp": 0,
+          "tn": 100,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.9833333333333333,
+        "fpr": 0.0,
+        "pr_auc": 0.9959915611814346
+      },
+      "manomano.com": {
+        "support": 81,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 81,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "mcdonalds.com": {
+        "support": 170,
+        "positives": 70,
+        "confusion": {
+          "tp": 64,
+          "fp": 2,
+          "tn": 98,
+          "fn": 6
+        },
+        "precision": 0.9696969696969697,
+        "recall": 0.9142857142857143,
+        "fpr": 0.02,
+        "pr_auc": 0.9660483251756427
+      },
+      "missguided.com": {
+        "support": 165,
+        "positives": 65,
+        "confusion": {
+          "tp": 63,
+          "fp": 0,
+          "tn": 100,
+          "fn": 2
+        },
+        "precision": 1.0,
+        "recall": 0.9692307692307692,
+        "fpr": 0.0,
+        "pr_auc": 0.9950320512820513
+      },
+      "myfitnesspal.com": {
+        "support": 103,
+        "positives": 4,
+        "confusion": {
+          "tp": 4,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "myprotein.com": {
+        "support": 170,
+        "positives": 70,
+        "confusion": {
+          "tp": 68,
+          "fp": 0,
+          "tn": 100,
+          "fn": 2
+        },
+        "precision": 1.0,
+        "recall": 0.9714285714285714,
+        "fpr": 0.0,
+        "pr_auc": 0.9932900432900433
+      },
+      "naver.com": {
+        "support": 105,
+        "positives": 45,
+        "confusion": {
+          "tp": 39,
+          "fp": 4,
+          "tn": 56,
+          "fn": 6
+        },
+        "precision": 0.9069767441860465,
+        "recall": 0.8666666666666667,
+        "fpr": 0.06666666666666667,
+        "pr_auc": 0.9755233453166547
+      },
+      "newbalance.com": {
+        "support": 171,
+        "positives": 71,
+        "confusion": {
+          "tp": 69,
+          "fp": 4,
+          "tn": 96,
+          "fn": 2
+        },
+        "precision": 0.9452054794520548,
+        "recall": 0.971830985915493,
+        "fpr": 0.04,
+        "pr_auc": 0.9919040674866407
+      },
+      "norwegian.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "pullandbear.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "qq.com": {
+        "support": 99,
+        "positives": 55,
+        "confusion": {
+          "tp": 55,
+          "fp": 1,
+          "tn": 43,
+          "fn": 0
+        },
+        "precision": 0.9821428571428571,
+        "recall": 1.0,
+        "fpr": 0.022727272727272728,
+        "pr_auc": 1.0
+      },
+      "revolve.com": {
+        "support": 171,
+        "positives": 71,
+        "confusion": {
+          "tp": 71,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "sonos.com": {
+        "support": 160,
+        "positives": 60,
+        "confusion": {
+          "tp": 60,
+          "fp": 1,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 0.9836065573770492,
+        "recall": 1.0,
+        "fpr": 0.01,
+        "pr_auc": 0.9997267759562841
+      },
+      "staples.com": {
+        "support": 149,
+        "positives": 49,
+        "confusion": {
+          "tp": 48,
+          "fp": 5,
+          "tn": 95,
+          "fn": 1
+        },
+        "precision": 0.9056603773584906,
+        "recall": 0.9795918367346939,
+        "fpr": 0.05,
+        "pr_auc": 0.9969573283858998
+      },
+      "steamstatic.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "stickermule.com": {
+        "support": 103,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "sweetwater.com": {
+        "support": 117,
+        "positives": 18,
+        "confusion": {
+          "tp": 18,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "tanga.com": {
+        "support": 177,
+        "positives": 77,
+        "confusion": {
+          "tp": 76,
+          "fp": 0,
+          "tn": 100,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.987012987012987,
+        "fpr": 0.0,
+        "pr_auc": 0.996021996021996
+      },
+      "teleflora.com": {
+        "support": 117,
+        "positives": 18,
+        "confusion": {
+          "tp": 18,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "thesill.com": {
+        "support": 102,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "tobi.com": {
+        "support": 107,
+        "positives": 8,
+        "confusion": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "tumblr.com": {
+        "support": 102,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 2,
+          "tn": 97,
+          "fn": 0
+        },
+        "precision": 0.6,
+        "recall": 1.0,
+        "fpr": 0.020202020202020204,
+        "pr_auc": 1.0
+      },
+      "turntablelab.com": {
+        "support": 99,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "ubereats.com": {
+        "support": 98,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 98,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "urbanstems.com": {
+        "support": 133,
+        "positives": 33,
+        "confusion": {
+          "tp": 33,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "veoh.com": {
+        "support": 99,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "volusion.com": {
+        "support": 131,
+        "positives": 31,
+        "confusion": {
+          "tp": 30,
+          "fp": 2,
+          "tn": 98,
+          "fn": 1
+        },
+        "precision": 0.9375,
+        "recall": 0.967741935483871,
+        "fpr": 0.02,
+        "pr_auc": 0.994479130535322
+      },
+      "wix.com": {
+        "support": 131,
+        "positives": 31,
+        "confusion": {
+          "tp": 22,
+          "fp": 1,
+          "tn": 99,
+          "fn": 9
+        },
+        "precision": 0.9565217391304348,
+        "recall": 0.7096774193548387,
+        "fpr": 0.01,
+        "pr_auc": 0.8492958532789361
+      },
+      "wolt.com": {
+        "support": 112,
+        "positives": 12,
+        "confusion": {
+          "tp": 11,
+          "fp": 1,
+          "tn": 99,
+          "fn": 1
+        },
+        "precision": 0.9166666666666666,
+        "recall": 0.9166666666666666,
+        "fpr": 0.01,
+        "pr_auc": 0.9362745098039216
+      },
+      "woocommerce.com": {
+        "support": 110,
+        "positives": 12,
+        "confusion": {
+          "tp": 12,
+          "fp": 0,
+          "tn": 98,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "zalando.com": {
+        "support": 29,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 29,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "zendesk.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      }
+    }
+  },
+  "by_source": {
+    "wcp": {
+      "block": {
+        "support": 6421,
+        "positives": 1349,
+        "confusion": {
+          "tp": 1300,
+          "fp": 35,
+          "tn": 5037,
+          "fn": 49
+        },
+        "precision": 0.9737827715355806,
+        "recall": 0.9636767976278725,
+        "fpr": 0.006900630914826498,
+        "pr_auc": 0.9910567049550242,
+        "fpr_wilson_95": [
+          0.004966064690576014,
+          0.00958156439117435
+        ],
+        "brier": 0.011408654296595955,
+        "ece_10": 0.009071416380506805
+      },
+      "choice": {
+        "known_support": 1349,
+        "top1_accuracy": 0.9592290585618977,
+        "end_to_end_recall": 0.9488510007412898,
+        "ece_10": 0.02199646051068848,
+        "by_type": {
+          "SQL注入": {
+            "positive_support": 391,
+            "choice_accuracy": 0.9769820971867008,
+            "end_to_end_recall": 0.9744245524296675,
+            "status": "evaluated"
+          },
+          "XSS": {
+            "positive_support": 391,
+            "choice_accuracy": 0.9820971867007673,
+            "end_to_end_recall": 0.9641943734015346,
+            "status": "evaluated"
+          },
+          "路径遍历": {
+            "positive_support": 178,
+            "choice_accuracy": 0.9719101123595506,
+            "end_to_end_recall": 0.9719101123595506,
+            "status": "evaluated"
+          },
+          "其他攻击": {
+            "positive_support": 389,
+            "choice_accuracy": 0.9125964010282777,
+            "end_to_end_recall": 0.897172236503856,
+            "status": "evaluated"
+          }
+        }
+      },
+      "by_site": {
+        "akstat.io": {
+          "support": 35,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 35,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "asos.com": {
+          "support": 163,
+          "positives": 63,
+          "confusion": {
+            "tp": 62,
+            "fp": 2,
+            "tn": 98,
+            "fn": 1
+          },
+          "precision": 0.96875,
+          "recall": 0.9841269841269841,
+          "fpr": 0.02,
+          "pr_auc": 0.9995115995115995
+        },
+        "bergdorfgoodman.com": {
+          "support": 136,
+          "positives": 36,
+          "confusion": {
+            "tp": 36,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "bilibili.com": {
+          "support": 111,
+          "positives": 11,
+          "confusion": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "bodybuilding.com": {
+          "support": 103,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "bollandbranch.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "dietdoctor.com": {
+          "support": 115,
+          "positives": 15,
+          "confusion": {
+            "tp": 15,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.9375,
+          "recall": 1.0,
+          "fpr": 0.01,
+          "pr_auc": 0.981498778998779
+        },
+        "elal.com": {
+          "support": 123,
+          "positives": 26,
+          "confusion": {
+            "tp": 22,
+            "fp": 6,
+            "tn": 91,
+            "fn": 4
+          },
+          "precision": 0.7857142857142857,
+          "recall": 0.8461538461538461,
+          "fpr": 0.061855670103092786,
+          "pr_auc": 0.9530760529063697
+        },
+        "epicgames.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.01,
+          "pr_auc": null
+        },
+        "fandom.com": {
+          "support": 77,
+          "positives": 7,
+          "confusion": {
+            "tp": 6,
+            "fp": 0,
+            "tn": 70,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "fpr": 0.0,
+          "pr_auc": 0.9404761904761905
+        },
+        "finishline.com": {
+          "support": 112,
+          "positives": 12,
+          "confusion": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 100,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9166666666666666,
+          "fpr": 0.0,
+          "pr_auc": 0.926470588235294
+        },
+        "flannels.com": {
+          "support": 146,
+          "positives": 48,
+          "confusion": {
+            "tp": 46,
+            "fp": 0,
+            "tn": 98,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.9583333333333334,
+          "fpr": 0.0,
+          "pr_auc": 0.9900808936825886
+        },
+        "footlocker.com": {
+          "support": 120,
+          "positives": 20,
+          "confusion": {
+            "tp": 20,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "gap.com": {
+          "support": 159,
+          "positives": 60,
+          "confusion": {
+            "tp": 59,
+            "fp": 0,
+            "tn": 99,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9833333333333333,
+          "fpr": 0.0,
+          "pr_auc": 0.9984848484848485
+        },
+        "godaddy.com": {
+          "support": 177,
+          "positives": 78,
+          "confusion": {
+            "tp": 75,
+            "fp": 1,
+            "tn": 98,
+            "fn": 3
+          },
+          "precision": 0.9868421052631579,
+          "recall": 0.9615384615384616,
+          "fpr": 0.010101010101010102,
+          "pr_auc": 0.9944679420038672
+        },
+        "hostgator.com": {
+          "support": 119,
+          "positives": 20,
+          "confusion": {
+            "tp": 19,
+            "fp": 0,
+            "tn": 99,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.95,
+          "fpr": 0.0,
+          "pr_auc": 0.9976190476190476
+        },
+        "icloud.com": {
+          "support": 125,
+          "positives": 25,
+          "confusion": {
+            "tp": 23,
+            "fp": 0,
+            "tn": 100,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.92,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "ionos.com": {
+          "support": 136,
+          "positives": 37,
+          "confusion": {
+            "tp": 36,
+            "fp": 1,
+            "tn": 98,
+            "fn": 1
+          },
+          "precision": 0.972972972972973,
+          "recall": 0.972972972972973,
+          "fpr": 0.010101010101010102,
+          "pr_auc": 0.9918329206087555
+        },
+        "jet2.com": {
+          "support": 102,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "jumia.com": {
+          "support": 91,
+          "positives": 16,
+          "confusion": {
+            "tp": 16,
+            "fp": 0,
+            "tn": 75,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "lastminute.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lazada.com": {
+          "support": 1,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 1,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lennylarry.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lightinthebox.com": {
+          "support": 160,
+          "positives": 60,
+          "confusion": {
+            "tp": 59,
+            "fp": 0,
+            "tn": 100,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9833333333333333,
+          "fpr": 0.0,
+          "pr_auc": 0.9959915611814346
+        },
+        "manomano.com": {
+          "support": 81,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 81,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "mcdonalds.com": {
+          "support": 170,
+          "positives": 70,
+          "confusion": {
+            "tp": 64,
+            "fp": 2,
+            "tn": 98,
+            "fn": 6
+          },
+          "precision": 0.9696969696969697,
+          "recall": 0.9142857142857143,
+          "fpr": 0.02,
+          "pr_auc": 0.9660483251756427
+        },
+        "missguided.com": {
+          "support": 165,
+          "positives": 65,
+          "confusion": {
+            "tp": 63,
+            "fp": 0,
+            "tn": 100,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.9692307692307692,
+          "fpr": 0.0,
+          "pr_auc": 0.9950320512820513
+        },
+        "myfitnesspal.com": {
+          "support": 103,
+          "positives": 4,
+          "confusion": {
+            "tp": 4,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "myprotein.com": {
+          "support": 170,
+          "positives": 70,
+          "confusion": {
+            "tp": 68,
+            "fp": 0,
+            "tn": 100,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.9714285714285714,
+          "fpr": 0.0,
+          "pr_auc": 0.9932900432900433
+        },
+        "naver.com": {
+          "support": 105,
+          "positives": 45,
+          "confusion": {
+            "tp": 39,
+            "fp": 4,
+            "tn": 56,
+            "fn": 6
+          },
+          "precision": 0.9069767441860465,
+          "recall": 0.8666666666666667,
+          "fpr": 0.06666666666666667,
+          "pr_auc": 0.9755233453166547
+        },
+        "newbalance.com": {
+          "support": 171,
+          "positives": 71,
+          "confusion": {
+            "tp": 69,
+            "fp": 4,
+            "tn": 96,
+            "fn": 2
+          },
+          "precision": 0.9452054794520548,
+          "recall": 0.971830985915493,
+          "fpr": 0.04,
+          "pr_auc": 0.9919040674866407
+        },
+        "norwegian.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "pullandbear.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "qq.com": {
+          "support": 99,
+          "positives": 55,
+          "confusion": {
+            "tp": 55,
+            "fp": 1,
+            "tn": 43,
+            "fn": 0
+          },
+          "precision": 0.9821428571428571,
+          "recall": 1.0,
+          "fpr": 0.022727272727272728,
+          "pr_auc": 1.0
+        },
+        "revolve.com": {
+          "support": 171,
+          "positives": 71,
+          "confusion": {
+            "tp": 71,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "sonos.com": {
+          "support": 160,
+          "positives": 60,
+          "confusion": {
+            "tp": 60,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.9836065573770492,
+          "recall": 1.0,
+          "fpr": 0.01,
+          "pr_auc": 0.9997267759562841
+        },
+        "staples.com": {
+          "support": 149,
+          "positives": 49,
+          "confusion": {
+            "tp": 48,
+            "fp": 5,
+            "tn": 95,
+            "fn": 1
+          },
+          "precision": 0.9056603773584906,
+          "recall": 0.9795918367346939,
+          "fpr": 0.05,
+          "pr_auc": 0.9969573283858998
+        },
+        "steamstatic.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "stickermule.com": {
+          "support": 103,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "sweetwater.com": {
+          "support": 117,
+          "positives": 18,
+          "confusion": {
+            "tp": 18,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "tanga.com": {
+          "support": 177,
+          "positives": 77,
+          "confusion": {
+            "tp": 76,
+            "fp": 0,
+            "tn": 100,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.987012987012987,
+          "fpr": 0.0,
+          "pr_auc": 0.996021996021996
+        },
+        "teleflora.com": {
+          "support": 117,
+          "positives": 18,
+          "confusion": {
+            "tp": 18,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "thesill.com": {
+          "support": 102,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "tobi.com": {
+          "support": 107,
+          "positives": 8,
+          "confusion": {
+            "tp": 8,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "tumblr.com": {
+          "support": 102,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 2,
+            "tn": 97,
+            "fn": 0
+          },
+          "precision": 0.6,
+          "recall": 1.0,
+          "fpr": 0.020202020202020204,
+          "pr_auc": 1.0
+        },
+        "turntablelab.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "ubereats.com": {
+          "support": 98,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "urbanstems.com": {
+          "support": 133,
+          "positives": 33,
+          "confusion": {
+            "tp": 33,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "veoh.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "volusion.com": {
+          "support": 131,
+          "positives": 31,
+          "confusion": {
+            "tp": 30,
+            "fp": 2,
+            "tn": 98,
+            "fn": 1
+          },
+          "precision": 0.9375,
+          "recall": 0.967741935483871,
+          "fpr": 0.02,
+          "pr_auc": 0.994479130535322
+        },
+        "wix.com": {
+          "support": 131,
+          "positives": 31,
+          "confusion": {
+            "tp": 22,
+            "fp": 1,
+            "tn": 99,
+            "fn": 9
+          },
+          "precision": 0.9565217391304348,
+          "recall": 0.7096774193548387,
+          "fpr": 0.01,
+          "pr_auc": 0.8492958532789361
+        },
+        "wolt.com": {
+          "support": 112,
+          "positives": 12,
+          "confusion": {
+            "tp": 11,
+            "fp": 1,
+            "tn": 99,
+            "fn": 1
+          },
+          "precision": 0.9166666666666666,
+          "recall": 0.9166666666666666,
+          "fpr": 0.01,
+          "pr_auc": 0.9362745098039216
+        },
+        "woocommerce.com": {
+          "support": 110,
+          "positives": 12,
+          "confusion": {
+            "tp": 12,
+            "fp": 0,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": 0.0,
+          "pr_auc": 1.0
+        },
+        "zalando.com": {
+          "support": 29,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 29,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "zendesk.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        }
+      }
+    }
+  },
+  "by_origin": {
+    "source_legitimate": {
+      "block": {
+        "support": 5072,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 35,
+          "tn": 5037,
+          "fn": 0
+        },
+        "precision": 0.0,
+        "recall": null,
+        "fpr": 0.006900630914826498,
+        "pr_auc": null,
+        "fpr_wilson_95": [
+          0.004966064690576014,
+          0.00958156439117435
+        ],
+        "brier": 0.003948230411033643,
+        "ece_10": 0.0015521694324365733
+      },
+      "choice": {
+        "known_support": 0,
+        "top1_accuracy": null,
+        "end_to_end_recall": null,
+        "ece_10": null,
+        "by_type": {
+          "SQL注入": {
+            "positive_support": 0,
+            "choice_accuracy": null,
+            "end_to_end_recall": null,
+            "status": "unsupported"
+          },
+          "XSS": {
+            "positive_support": 0,
+            "choice_accuracy": null,
+            "end_to_end_recall": null,
+            "status": "unsupported"
+          },
+          "路径遍历": {
+            "positive_support": 0,
+            "choice_accuracy": null,
+            "end_to_end_recall": null,
+            "status": "unsupported"
+          },
+          "其他攻击": {
+            "positive_support": 0,
+            "choice_accuracy": null,
+            "end_to_end_recall": null,
+            "status": "unsupported"
+          }
+        }
+      },
+      "by_site": {
+        "akstat.io": {
+          "support": 35,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 35,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "asos.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.02,
+          "pr_auc": null
+        },
+        "bergdorfgoodman.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "bilibili.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "bodybuilding.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "bollandbranch.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "dietdoctor.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.01,
+          "pr_auc": null
+        },
+        "elal.com": {
+          "support": 97,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 6,
+            "tn": 91,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.061855670103092786,
+          "pr_auc": null
+        },
+        "epicgames.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.01,
+          "pr_auc": null
+        },
+        "fandom.com": {
+          "support": 70,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 70,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "finishline.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "flannels.com": {
+          "support": 98,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "footlocker.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "gap.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "godaddy.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.010101010101010102,
+          "pr_auc": null
+        },
+        "hostgator.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "icloud.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "ionos.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.010101010101010102,
+          "pr_auc": null
+        },
+        "jet2.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "jumia.com": {
+          "support": 75,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 75,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lastminute.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lazada.com": {
+          "support": 1,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 1,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lennylarry.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "lightinthebox.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "manomano.com": {
+          "support": 81,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 81,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "mcdonalds.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.02,
+          "pr_auc": null
+        },
+        "missguided.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "myfitnesspal.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "myprotein.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "naver.com": {
+          "support": 60,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 4,
+            "tn": 56,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.06666666666666667,
+          "pr_auc": null
+        },
+        "newbalance.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 4,
+            "tn": 96,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.04,
+          "pr_auc": null
+        },
+        "norwegian.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "pullandbear.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "qq.com": {
+          "support": 44,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 43,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.022727272727272728,
+          "pr_auc": null
+        },
+        "revolve.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "sonos.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.01,
+          "pr_auc": null
+        },
+        "staples.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 5,
+            "tn": 95,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.05,
+          "pr_auc": null
+        },
+        "steamstatic.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "stickermule.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "sweetwater.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "tanga.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "teleflora.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "thesill.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "tobi.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "tumblr.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 97,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.020202020202020204,
+          "pr_auc": null
+        },
+        "turntablelab.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "ubereats.com": {
+          "support": 98,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "urbanstems.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "veoh.com": {
+          "support": 99,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "volusion.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.02,
+          "pr_auc": null
+        },
+        "wix.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.01,
+          "pr_auc": null
+        },
+        "wolt.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 99,
+            "fn": 0
+          },
+          "precision": 0.0,
+          "recall": null,
+          "fpr": 0.01,
+          "pr_auc": null
+        },
+        "woocommerce.com": {
+          "support": 98,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 98,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "zalando.com": {
+          "support": 29,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 29,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        },
+        "zendesk.com": {
+          "support": 100,
+          "positives": 0,
+          "confusion": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 100,
+            "fn": 0
+          },
+          "precision": null,
+          "recall": null,
+          "fpr": 0.0,
+          "pr_auc": null
+        }
+      }
+    },
+    "synthetic_payload": {
+      "block": {
+        "support": 1349,
+        "positives": 1349,
+        "confusion": {
+          "tp": 1300,
+          "fp": 0,
+          "tn": 0,
+          "fn": 49
+        },
+        "precision": 1.0,
+        "recall": 0.9636767976278725,
+        "fpr": null,
+        "pr_auc": 1.0,
+        "fpr_wilson_95": null,
+        "brier": 0.039458520825559666,
+        "ece_10": 0.037342447159314424
+      },
+      "choice": {
+        "known_support": 1349,
+        "top1_accuracy": 0.9592290585618977,
+        "end_to_end_recall": 0.9488510007412898,
+        "ece_10": 0.02199646051068848,
+        "by_type": {
+          "SQL注入": {
+            "positive_support": 391,
+            "choice_accuracy": 0.9769820971867008,
+            "end_to_end_recall": 0.9744245524296675,
+            "status": "evaluated"
+          },
+          "XSS": {
+            "positive_support": 391,
+            "choice_accuracy": 0.9820971867007673,
+            "end_to_end_recall": 0.9641943734015346,
+            "status": "evaluated"
+          },
+          "路径遍历": {
+            "positive_support": 178,
+            "choice_accuracy": 0.9719101123595506,
+            "end_to_end_recall": 0.9719101123595506,
+            "status": "evaluated"
+          },
+          "其他攻击": {
+            "positive_support": 389,
+            "choice_accuracy": 0.9125964010282777,
+            "end_to_end_recall": 0.897172236503856,
+            "status": "evaluated"
+          }
+        }
+      },
+      "by_site": {
+        "asos.com": {
+          "support": 63,
+          "positives": 63,
+          "confusion": {
+            "tp": 62,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9841269841269841,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "bergdorfgoodman.com": {
+          "support": 36,
+          "positives": 36,
+          "confusion": {
+            "tp": 36,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "bilibili.com": {
+          "support": 11,
+          "positives": 11,
+          "confusion": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "bodybuilding.com": {
+          "support": 3,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "dietdoctor.com": {
+          "support": 15,
+          "positives": 15,
+          "confusion": {
+            "tp": 15,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "elal.com": {
+          "support": 26,
+          "positives": 26,
+          "confusion": {
+            "tp": 22,
+            "fp": 0,
+            "tn": 0,
+            "fn": 4
+          },
+          "precision": 1.0,
+          "recall": 0.8461538461538461,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "fandom.com": {
+          "support": 7,
+          "positives": 7,
+          "confusion": {
+            "tp": 6,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "finishline.com": {
+          "support": 12,
+          "positives": 12,
+          "confusion": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9166666666666666,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "flannels.com": {
+          "support": 48,
+          "positives": 48,
+          "confusion": {
+            "tp": 46,
+            "fp": 0,
+            "tn": 0,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.9583333333333334,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "footlocker.com": {
+          "support": 20,
+          "positives": 20,
+          "confusion": {
+            "tp": 20,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "gap.com": {
+          "support": 60,
+          "positives": 60,
+          "confusion": {
+            "tp": 59,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9833333333333333,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "godaddy.com": {
+          "support": 78,
+          "positives": 78,
+          "confusion": {
+            "tp": 75,
+            "fp": 0,
+            "tn": 0,
+            "fn": 3
+          },
+          "precision": 1.0,
+          "recall": 0.9615384615384616,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "hostgator.com": {
+          "support": 20,
+          "positives": 20,
+          "confusion": {
+            "tp": 19,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.95,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "icloud.com": {
+          "support": 25,
+          "positives": 25,
+          "confusion": {
+            "tp": 23,
+            "fp": 0,
+            "tn": 0,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.92,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "ionos.com": {
+          "support": 37,
+          "positives": 37,
+          "confusion": {
+            "tp": 36,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.972972972972973,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "jet2.com": {
+          "support": 3,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "jumia.com": {
+          "support": 16,
+          "positives": 16,
+          "confusion": {
+            "tp": 16,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "lightinthebox.com": {
+          "support": 60,
+          "positives": 60,
+          "confusion": {
+            "tp": 59,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9833333333333333,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "mcdonalds.com": {
+          "support": 70,
+          "positives": 70,
+          "confusion": {
+            "tp": 64,
+            "fp": 0,
+            "tn": 0,
+            "fn": 6
+          },
+          "precision": 1.0,
+          "recall": 0.9142857142857143,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "missguided.com": {
+          "support": 65,
+          "positives": 65,
+          "confusion": {
+            "tp": 63,
+            "fp": 0,
+            "tn": 0,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.9692307692307692,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "myfitnesspal.com": {
+          "support": 4,
+          "positives": 4,
+          "confusion": {
+            "tp": 4,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "myprotein.com": {
+          "support": 70,
+          "positives": 70,
+          "confusion": {
+            "tp": 68,
+            "fp": 0,
+            "tn": 0,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.9714285714285714,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "naver.com": {
+          "support": 45,
+          "positives": 45,
+          "confusion": {
+            "tp": 39,
+            "fp": 0,
+            "tn": 0,
+            "fn": 6
+          },
+          "precision": 1.0,
+          "recall": 0.8666666666666667,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "newbalance.com": {
+          "support": 71,
+          "positives": 71,
+          "confusion": {
+            "tp": 69,
+            "fp": 0,
+            "tn": 0,
+            "fn": 2
+          },
+          "precision": 1.0,
+          "recall": 0.971830985915493,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "qq.com": {
+          "support": 55,
+          "positives": 55,
+          "confusion": {
+            "tp": 55,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "revolve.com": {
+          "support": 71,
+          "positives": 71,
+          "confusion": {
+            "tp": 71,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "sonos.com": {
+          "support": 60,
+          "positives": 60,
+          "confusion": {
+            "tp": 60,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "staples.com": {
+          "support": 49,
+          "positives": 49,
+          "confusion": {
+            "tp": 48,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9795918367346939,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "stickermule.com": {
+          "support": 3,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "sweetwater.com": {
+          "support": 18,
+          "positives": 18,
+          "confusion": {
+            "tp": 18,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "tanga.com": {
+          "support": 77,
+          "positives": 77,
+          "confusion": {
+            "tp": 76,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.987012987012987,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "teleflora.com": {
+          "support": 18,
+          "positives": 18,
+          "confusion": {
+            "tp": 18,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "thesill.com": {
+          "support": 3,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "tobi.com": {
+          "support": 8,
+          "positives": 8,
+          "confusion": {
+            "tp": 8,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "tumblr.com": {
+          "support": 3,
+          "positives": 3,
+          "confusion": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "urbanstems.com": {
+          "support": 33,
+          "positives": 33,
+          "confusion": {
+            "tp": 33,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "volusion.com": {
+          "support": 31,
+          "positives": 31,
+          "confusion": {
+            "tp": 30,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.967741935483871,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "wix.com": {
+          "support": 31,
+          "positives": 31,
+          "confusion": {
+            "tp": 22,
+            "fp": 0,
+            "tn": 0,
+            "fn": 9
+          },
+          "precision": 1.0,
+          "recall": 0.7096774193548387,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "wolt.com": {
+          "support": 12,
+          "positives": 12,
+          "confusion": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 0,
+            "fn": 1
+          },
+          "precision": 1.0,
+          "recall": 0.9166666666666666,
+          "fpr": null,
+          "pr_auc": 1.0
+        },
+        "woocommerce.com": {
+          "support": 12,
+          "positives": 12,
+          "confusion": {
+            "tp": 12,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0
+          },
+          "precision": 1.0,
+          "recall": 1.0,
+          "fpr": null,
+          "pr_auc": 1.0
+        }
+      }
+    }
+  },
+  "tokens": {
+    "rows": 6421,
+    "p50_tokens": 127,
+    "p95_tokens": 2548,
+    "max_tokens": 36153,
+    "truncated": 1684,
+    "unknown_tokens": 1804,
+    "min_retained_ratio": 0.01410671313583935
+  },
+  "label_counts": {
+    "normal": 5072,
+    "SQL注入": 391,
+    "XSS": 391,
+    "路径遍历": 178,
+    "其他攻击": 389
+  }
+}

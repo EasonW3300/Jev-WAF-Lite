@@ -1,0 +1,127 @@
+{
+  "model_version": "bert-security-v2-1791770771",
+  "status": "qualitative_only",
+  "production_validated": false,
+  "cases": [
+    {
+      "id": "normal-product-search",
+      "note": "普通商品搜索",
+      "expected_block": false,
+      "predicted_block": false,
+      "block_score": 0.0005228145164437592,
+      "expected_type": null,
+      "predicted_type": null,
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "normal-login",
+      "note": "普通登录，密码由预处理遮盖",
+      "expected_block": false,
+      "predicted_block": false,
+      "block_score": 0.0008053557830862701,
+      "expected_type": null,
+      "predicted_type": null,
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "normal-sql-words",
+      "note": "困难正常：SQL 词汇用于文档搜索",
+      "expected_block": false,
+      "predicted_block": false,
+      "block_score": 0.0005920535768382251,
+      "expected_type": null,
+      "predicted_type": null,
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "normal-html",
+      "note": "困难正常：合法 HTML 文本",
+      "expected_block": false,
+      "predicted_block": false,
+      "block_score": 0.0011102192802354693,
+      "expected_type": null,
+      "predicted_type": null,
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "normal-relative-path",
+      "note": "困难正常：可规范化的相对静态路径，需人工核实业务语义",
+      "expected_block": false,
+      "predicted_block": false,
+      "block_score": 0.0007167656440287828,
+      "expected_type": null,
+      "predicted_type": null,
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "sqli-union",
+      "note": "SQL 注入候选",
+      "expected_block": true,
+      "predicted_block": false,
+      "block_score": 0.0009944385383278131,
+      "expected_type": "SQL注入",
+      "predicted_type": null,
+      "correct_block": false,
+      "correct_end_to_end": false,
+      "truncated": false
+    },
+    {
+      "id": "xss-svg",
+      "note": "XSS 候选",
+      "expected_block": true,
+      "predicted_block": true,
+      "block_score": 0.9978951215744019,
+      "expected_type": "XSS",
+      "predicted_type": "XSS",
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "traversal-etc",
+      "note": "路径遍历候选",
+      "expected_block": true,
+      "predicted_block": true,
+      "block_score": 0.9949606657028198,
+      "expected_type": "路径遍历",
+      "predicted_type": "路径遍历",
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "cmd-injection",
+      "note": "命令注入候选",
+      "expected_block": true,
+      "predicted_block": true,
+      "block_score": 0.9935716390609741,
+      "expected_type": "其他攻击",
+      "predicted_type": "其他攻击",
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    },
+    {
+      "id": "normal-report",
+      "note": "普通报表下载",
+      "expected_block": false,
+      "predicted_block": false,
+      "block_score": 0.0005107586621306837,
+      "expected_type": null,
+      "predicted_type": null,
+      "correct_block": true,
+      "correct_end_to_end": true,
+      "truncated": false
+    }
+  ]
+}

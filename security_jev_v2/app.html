@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>HTTP 请求安全分析 · 本地实验</title>
+  <style>
+    :root {
+      --paper: #f5f6f2;
+      --surface: #ffffff;
+      --ink: #14232d;
+      --muted: #63727a;
+      --line: #dce3e2;
+      --navy: #102935;
+      --teal: #087b77;
+      --teal-soft: #e5f5f1;
+      --red: #b83e3b;
+      --red-soft: #fff0ed;
+      --amber: #a56b17;
+      --amber-soft: #fff5df;
+      --shadow: 0 20px 60px rgba(19, 45, 53, .08);
+    }
+    * { box-sizing: border-box; }
+    html { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    body { margin: 0; color: var(--ink); background: var(--paper); }
+    button, textarea { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, textarea:focus-visible { outline: 3px solid #73c9c2; outline-offset: 3px; }
+    .site-header {
+      background: var(--navy); color: white; min-height: 82px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 16px max(30px, calc((100vw - 1460px) / 2));
+      border-bottom: 4px solid #d7efdf;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 42px; height: 42px; border: 1px solid #78bbb4; border-radius: 12px;
+      display: grid; place-items: center; color: #b9e5dd; font: 700 20px/1 ui-monospace, monospace;
+      background: #183c46;
+    }
+    .brand-name { font-size: 20px; font-weight: 720; letter-spacing: -.025em; }
+    .brand-sub { margin-top: 2px; color: #a8c4c4; font: 12px/1.4 ui-monospace, SFMono-Regular, monospace; letter-spacing: .09em; }
+    .header-status { display: flex; align-items: center; gap: 9px; color: #c7d9d6; font-size: 13px; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #6fdec2; box-shadow: 0 0 0 4px #6fdec222; }
+    .page { max-width: 1520px; padding: 38px 30px 54px; margin: 0 auto; }
+    .intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-bottom: 25px; }
+    .eyebrow { color: var(--teal); font: 700 12px/1.4 ui-monospace, SFMono-Regular, monospace; letter-spacing: .16em; }
+    h1 { margin: 6px 0 7px; font-size: clamp(28px, 3vw, 39px); line-height: 1.14; letter-spacing: -.045em; }
+    .intro p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 680px; font-size: 14px; }
+    .lab-tag { border: 1px solid #e9c990; background: var(--amber-soft); color: #835618; border-radius: 999px; padding: 8px 13px; white-space: nowrap; font-size: 12px; font-weight: 700; }
+    .workspace { display: grid; grid-template-columns: minmax(370px, .95fr) minmax(0, 1.05fr); gap: 20px; align-items: start; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+    .panel-head { padding: 23px 25px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+    .panel-title { margin: 0; font-size: 18px; letter-spacing: -.02em; }
+    .panel-caption { color: var(--muted); font-size: 12px; margin: 5px 0 0; line-height: 1.5; }
+    .index { color: #a8b8b8; font: 600 12px/1 ui-monospace, SFMono-Regular, monospace; }
+    .input-body { padding: 21px 25px 25px; }
+    .field-label { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; font-weight: 700; margin-bottom: 11px; }
+    .field-note { color: var(--muted); font: 500 12px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    textarea {
+      width: 100%; min-height: 432px; padding: 21px 22px; resize: vertical;
+      border: 1px solid #244551; border-radius: 12px; background: #102630; color: #e6f2ed;
+      font: 13px/1.75 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      tab-size: 2; box-shadow: inset 0 1px 12px #07171d66;
+    }
+    textarea::placeholder { color: #80a2a4; opacity: 1; }
+    .editor-bottom { display: flex; justify-content: space-between; gap: 10px; align-items: center; margin: 9px 0 18px; color: var(--muted); font: 11px/1.5 ui-monospace, SFMono-Regular, monospace; }
+    .action-row { display: flex; gap: 9px; flex-wrap: wrap; }
+    .btn { border: 1px solid #d4dfdd; background: white; color: var(--ink); padding: 11px 15px; border-radius: 10px; font-size: 13px; font-weight: 700; }
+    .btn:hover { background: #f4f8f6; }
+    .btn-primary { background: var(--teal); color: white; border-color: var(--teal); flex: 1; min-width: 150px; }
+    .btn-primary:hover { background: #086b67; }
+    .btn:disabled { opacity: .55; cursor: wait; }
+    .hint-line { margin: 17px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .error { min-height: 0; color: var(--red); font-size: 13px; margin-top: 12px; font-weight: 650; }
+    .result-body { padding: 24px 25px 27px; }
+    .empty { min-height: 535px; display: grid; place-content: center; text-align: center; color: var(--muted); }
+    .empty-icon { margin: 0 auto 20px; width: 75px; height: 75px; display: grid; place-items: center; border-radius: 20px; background: #edf4f0; color: var(--teal); font: 500 36px/1 ui-monospace, monospace; }
+    .empty strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 7px; }
+    .empty span { font-size: 13px; line-height: 1.6; }
+    [hidden] { display: none !important; }
+    .summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 23px; }
+    .summary-kicker { display: block; color: var(--muted); font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+    .verdict { display: inline-flex; align-items: center; gap: 8px; font-size: 28px; line-height: 1.2; font-weight: 760; letter-spacing: -.05em; }
+    .verdict::before { content: ""; display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--teal); }
+    .verdict.block { color: var(--red); }
+    .verdict.block::before { background: var(--red); }
+    .timer { text-align: right; color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .timer b { display: block; margin-top: 2px; font: 650 24px/1.2 ui-monospace, SFMono-Regular, monospace; color: var(--ink); letter-spacing: -.05em; }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 21px; margin: 0 0 14px; }
+    .section-heading h3 { margin: 0; font-size: 15px; }
+    .section-heading span { color: var(--muted); font: 11px/1.4 ui-monospace, SFMono-Regular, monospace; text-align: right; }
+    .options { display: grid; gap: 10px; }
+    .options.binary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .option { padding: 14px 15px 15px; border: 1px solid var(--line); border-radius: 12px; background: #fbfcfb; min-width: 0; transition: border-color .2s, background-color .2s, transform .2s; }
+    .option.selected { border-color: #79beb7; background: #f0faf6; transform: translateY(-2px); }
+    .option.selected.block-choice { border-color: #e1a6a0; background: #fff5f2; }
+    .option-top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .option-name { font-size: 14px; font-weight: 690; min-width: 0; }
+    .option-score { margin-left: auto; font: 700 16px/1 ui-monospace, SFMono-Regular, monospace; font-variant-numeric: tabular-nums; }
+    .selected-mark { color: var(--teal); font-size: 11px; font-weight: 750; border-radius: 99px; background: #d9f3e9; padding: 3px 7px; white-space: nowrap; }
+    .option.block-choice .selected-mark { color: var(--red); background: #ffe0db; }
+    .histogram { height: 9px; background: #e3ebea; border-radius: 2px; overflow: hidden; position: relative; }
+    .histogram-fill { display: block; height: 100%; background: #a3b6b5; border-radius: 2px; min-width: 1px; transition: width .55s ease; }
+    .selected .histogram-fill { background: var(--teal); }
+    .selected.block-choice .histogram-fill { background: var(--red); }
+    .scale { display: flex; justify-content: space-between; color: #9ba9a8; font: 10px/1 ui-monospace, SFMono-Regular, monospace; margin-top: 5px; }
+    .unsupported { color: var(--amber); font-size: 11px; margin: 9px 0 0; line-height: 1.4; }
+    .result-note { margin: 17px 0 0; padding: 12px 13px; border-radius: 10px; background: var(--amber-soft); color: #775822; font-size: 12px; line-height: 1.6; }
+    .foot-meta { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .meta-pill { color: #52696d; background: #eff4f3; padding: 6px 9px; border-radius: 7px; font: 11px/1.3 ui-monospace, SFMono-Regular, monospace; }
+    .meta-pill.warn { background: #fff0de; color: #976014; }
+    @media (max-width: 980px) { .workspace { grid-template-columns: 1fr; } .empty { min-height: 280px; } textarea { min-height: 310px; } }
+    @media (max-width: 600px) {
+      .site-header { padding: 15px 19px; align-items: flex-start; }
+      .header-status { display: none; }
+      .page { padding: 28px 16px 40px; }
+      .intro { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .panel-head, .input-body, .result-body { padding-left: 18px; padding-right: 18px; }
+      .options.binary { grid-template-columns: 1fr; }
+      textarea { min-height: 260px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">//</div>
+      <div><div class="brand-name">HTTP 请求安全分析</div><div class="brand-sub">BERT SECURITY · LOCAL LAB</div></div>
+    </div>
+    <div class="header-status"><span class="status-dot" aria-hidden="true"></span><span id="model-status">读取本地模型信息…</span></div>
+  </header>
+
+  <main class="page">
+    <div class="intro">
+      <div><span class="eyebrow">REQUEST INSPECTION / 01</span><h1>检查一条 HTTP 请求</h1><p>粘贴原始请求文本，查看 Noul 是/否分布，以及 Choice 的四类条件分布。</p></div>
+    </div>
+
+    <div class="workspace">
+      <section class="panel" aria-labelledby="input-title">
+        <div class="panel-head"><div><h2 class="panel-title" id="input-title">请求输入</h2><p class="panel-caption">文本仅发送到本机推理服务，不会执行该 HTTP 请求。</p></div><span class="index">INPUT / 01</span></div>
+        <div class="input-body">
+          <label class="field-label" for="request-input"><span>原始请求流量</span><span class="field-note">REQUEST BODY</span></label>
+          <textarea id="request-input" spellcheck="false" autocomplete="off" placeholder="GET /path?name=value HTTP/1.1&#10;Host: example.test&#10;User-Agent: local-check&#10;&#10;可在这里输入请求体…"></textarea>
+          <div class="editor-bottom"><span>支持请求行、Header 与 Body</span><span id="char-count">0 字符</span></div>
+          <div class="action-row"><button class="btn btn-primary" id="analyze-button" type="button">分析请求 <span aria-hidden="true">↗</span></button><button class="btn" id="sample-button" type="button">填入示例</button><button class="btn" id="clear-button" type="button">清空</button></div>
+          <div class="error" id="error-message" role="alert"></div>
+          <p class="hint-line">快捷键：⌘ / Ctrl + Enter。最多 64 KiB；过长文本会保留首尾 token，并在结果中标明。</p>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="result-title">
+        <div class="panel-head"><div><h2 class="panel-title" id="result-title">模型结果</h2><p class="panel-caption">两组百分比分别合计 100.00%；答案和策略动作独立显示。</p></div><span class="index">OUTPUT / 02</span></div>
+        <div class="result-body" aria-live="polite">
+          <div class="empty" id="empty-state"><div class="empty-icon" aria-hidden="true">&gt;_</div><strong id="empty-title">等待输入请求</strong><span id="empty-description">分析完成后，这里会显示选中答案、<br>选项得分直方图与模型处理耗时。</span></div>
+          <div id="result-data" hidden>
+            <div class="summary"><div><span class="summary-kicker">离线实验策略动作</span><span class="verdict" id="verdict">—</span></div><div class="timer">模型处理耗时<b id="elapsed">— ms</b></div></div>
+            <div class="section-heading"><h3>是否拦截</h3><span id="threshold-label">实验阈值 —</span></div>
+            <div class="options binary" id="block-options"></div>
+            <div class="section-heading" style="margin-top: 24px"><h3>攻击类别</h3><span id="choice-caption">已是攻击的条件分布 · 合计 100.00%</span></div>
+            <div class="options" id="type-options"></div>
+            <p class="result-note" id="choice-note">Choice 仅表示已是攻击条件下的主类别分布。正常请求不选中攻击类别。分数经独立校准，但公开及合成数据不能证明线上可信度。</p>
+            <div class="foot-meta" id="result-meta"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const requestInput = document.getElementById('request-input');
+    const errorMessage = document.getElementById('error-message');
+    const analyzeButton = document.getElementById('analyze-button');
+    const emptyState = document.getElementById('empty-state');
+    const resultData = document.getElementById('result-data');
+    const percent = score => `${(Math.max(0, Math.min(1, score)) * 100).toFixed(2)}%`;
+    // Allocate remaining hundredths to the largest fractional parts, making the visible sum exact.
+    function visiblePercents(scores) {
+      const raw = scores.map(value => Math.max(0, Math.min(1, value)) * 10000);
+      const units = raw.map(Math.floor);
+      let remaining = 10000 - units.reduce((a, b) => a + b, 0);
+      const order = raw.map((value, index) => ({index, fraction: value - units[index]}))
+        .sort((a, b) => b.fraction - a.fraction || a.index - b.index);
+      for (let i = 0; i < remaining; i++) units[order[i % order.length].index]++;
+      return units.map(value => `${(value / 100).toFixed(2)}%`);
+    }
+    let lastAnalyzedState = null;
+
+    function showPendingResult() {
+      resultData.hidden = true;
+      emptyState.hidden = false;
+      document.getElementById('empty-title').textContent = '请求已修改';
+      document.getElementById('empty-description').textContent = '点击“分析请求”更新模型结果。';
+    }
+
+    // Build every result label with textContent, so pasted request text is never HTML.
+    function renderOptions(container, options, binary = false) {
+      container.replaceChildren();
+      for (const item of options) {
+        const card = document.createElement('article');
+        card.className = `option${item.selected ? ' selected' : ''}${binary && item.label === '是' ? ' block-choice' : ''}`;
+        const top = document.createElement('div'); top.className = 'option-top';
+        const name = document.createElement('span'); name.className = 'option-name'; name.textContent = item.label;
+        top.append(name);
+        if (item.selected) {
+          const mark = document.createElement('span'); mark.className = 'selected-mark'; mark.textContent = '✓ 已选中';
+          top.append(mark);
+        }
+        const score = document.createElement('span'); score.className = 'option-score'; score.textContent = item.display;
+        top.append(score);
+        const bar = document.createElement('div'); bar.className = 'histogram'; bar.setAttribute('role', 'img');
+        bar.setAttribute('aria-label', `${item.label}得分 ${percent(item.score)}`);
+        const fill = document.createElement('span'); fill.className = 'histogram-fill';
+        fill.style.width = percent(item.score); bar.append(fill);
+        const scale = document.createElement('div'); scale.className = 'scale';
+        for (const tick of ['0', '25', '50', '75', '100%']) { const span = document.createElement('span'); span.textContent = tick; scale.append(span); }
+        card.append(top, bar, scale);
+        if (item.validated === false) {
+          const note = document.createElement('p'); note.className = 'unsupported'; note.textContent = '测试集无正例 · 效果无法验证'; card.append(note);
+        }
+        container.append(card);
+      }
+    }
+
+    function renderResult(result) {
+      const policyBlock = result.policy.would_block;
+      const verdict = document.getElementById('verdict');
+      verdict.classList.toggle('block', policyBlock);
+      verdict.textContent = policyBlock ? '是 · 实验策略拦截' : '否 · 实验策略放行';
+      document.getElementById('elapsed').textContent = `${result.elapsed_ms.toFixed(2)} ms`;
+      document.getElementById('threshold-label').textContent =
+        `Noul 合计 100.00% · 策略阈值 ${result.policy.experimental_threshold.toFixed(6)}`;
+      const blockLabels = ['是', '否'];
+      const blockScores = blockLabels.map(label => result.noul.probabilities[label]);
+      const blockDisplay = visiblePercents(blockScores);
+      const blockOptions = blockLabels.map((label, i) => ({
+        label, score: blockScores[i], display: blockDisplay[i], selected: result.noul.selected === label
+      }));
+      renderOptions(document.getElementById('block-options'), blockOptions, true);
+      const typeLabels = ['SQL注入', 'XSS', '路径遍历', '其他攻击'];
+      const typeScores = typeLabels.map(label => result.choice.probabilities[label]);
+      const typeDisplay = visiblePercents(typeScores);
+      const typeOptions = typeLabels.map((label, i) => ({
+        label, score: typeScores[i], display: typeDisplay[i],
+        selected: result.choice.applicable && result.choice.selected === label
+      }));
+      renderOptions(document.getElementById('type-options'), typeOptions);
+      document.getElementById('choice-caption').textContent = result.choice.applicable
+        ? '已是攻击的条件分布 · 合计 100.00%' : '不适用 · 条件分布仍显示，合计 100.00%';
+      document.getElementById('choice-note').textContent = result.choice.applicable
+        ? 'Choice 是已是攻击条件下的互斥主类别分布；类别最高分已选中。校准并不保证概率在真实流量上可信。'
+        : 'Noul 当前选择“否”：攻击类别不适用，因此没有类别被选中。图表仅展示“假设已是攻击”时的条件分布。';
+      const meta = document.getElementById('result-meta'); meta.replaceChildren();
+      for (const [label, warning] of [
+        [`模型 ${result.model_version}`, false],
+        [`输入保留 ${(result.retained_ratio * 100).toFixed(1)}%`, result.truncated],
+        [result.truncated ? '请求已截断' : '请求未截断', result.truncated],
+      ]) {
+        const pill = document.createElement('span'); pill.className = `meta-pill${warning ? ' warn' : ''}`;
+        pill.textContent = label; meta.append(pill);
+      }
+      emptyState.hidden = true;
+      resultData.hidden = false;
+    }
+
+    async function analyze() {
+      const state = requestInput.value;
+      errorMessage.textContent = '';
+      if (!state.trim()) { errorMessage.textContent = '请先输入一条 HTTP 请求。'; requestInput.focus(); return; }
+      analyzeButton.disabled = true; analyzeButton.textContent = '分析中…';
+      try {
+        const response = await fetch('/api/v2/predict', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ state }) });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || `HTTP ${response.status}`);
+        if (requestInput.value !== state) { showPendingResult(); return; }
+        renderResult(result);
+        lastAnalyzedState = state;
+      } catch (error) { errorMessage.textContent = `分析失败：${error.message}`; }
+      finally { analyzeButton.disabled = false; analyzeButton.textContent = '分析请求 ↗'; }
+    }
+
+    analyzeButton.addEventListener('click', analyze);
+    document.getElementById('sample-button').addEventListener('click', () => {
+      requestInput.value = 'GET / HTTP/1.1\r\nHost: example.test\r\nUser-Agent: local-lab\r\nAccept: */*\r\n\r\n';
+      document.getElementById('char-count').textContent = `${requestInput.value.length} 字符`;
+      errorMessage.textContent = '';
+      if (lastAnalyzedState !== null && requestInput.value !== lastAnalyzedState) showPendingResult();
+      requestInput.focus();
+    });
+    document.getElementById('clear-button').addEventListener('click', () => {
+      requestInput.value = ''; document.getElementById('char-count').textContent = '0 字符';
+      errorMessage.textContent = ''; resultData.hidden = true; emptyState.hidden = false;
+      lastAnalyzedState = null;
+      document.getElementById('empty-title').textContent = '等待输入请求';
+      document.getElementById('empty-description').textContent = '分析完成后，这里会显示选中答案、选项得分直方图与模型处理耗时。';
+      requestInput.focus();
+    });
+    requestInput.addEventListener('input', () => {
+      document.getElementById('char-count').textContent = `${requestInput.value.length} 字符`;
+      if (lastAnalyzedState !== null && requestInput.value !== lastAnalyzedState) showPendingResult();
+    });
+    document.addEventListener('keydown', event => {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') { event.preventDefault(); analyze(); }
+    });
+    (async () => {
+      try {
+        const response = await fetch('/api/v2/info'); const info = await response.json();
+        if (!response.ok) throw new Error(info.error || response.status);
+        const lineage = info.encoder_initialization === 'original_pretrained_bert' ? '原版 BERT 微调' : 'v1 Encoder 续训';
+        document.getElementById('model-status').textContent = `${info.model_version} · ${lineage} · ${info.device.toUpperCase()}`;
+      } catch (error) { document.getElementById('model-status').textContent = '本地模型信息不可用'; }
+    })();
+  </script>
+</body>
+</html>

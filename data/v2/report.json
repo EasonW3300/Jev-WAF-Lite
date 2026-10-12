@@ -1,0 +1,162 @@
+{
+  "counts": {
+    "train": {
+      "rows": 21416,
+      "normal": 16562,
+      "SQL注入": 1327,
+      "XSS": 1237,
+      "其他攻击": 1847,
+      "路径遍历": 443
+    },
+    "val": {
+      "rows": 4076,
+      "normal": 3313,
+      "SQL注入": 229,
+      "XSS": 225,
+      "路径遍历": 82,
+      "其他攻击": 227
+    },
+    "calib": {
+      "rows": 3096,
+      "normal": 2558,
+      "SQL注入": 166,
+      "XSS": 164,
+      "其他攻击": 162,
+      "路径遍历": 46
+    },
+    "test": {
+      "rows": 6421,
+      "normal": 5072,
+      "SQL注入": 391,
+      "XSS": 391,
+      "路径遍历": 178,
+      "其他攻击": 389
+    }
+  },
+  "wcp": {
+    "read": 1010980,
+    "invalid_or_oversize": 2244,
+    "max_rows_per_member": 5000,
+    "max_member_bytes": 52428800,
+    "skipped_large_members": 6,
+    "skipped_third_party_requests": 553057,
+    "sites": 304
+  },
+  "data_sha256": {
+    "train": "2282373aa152ed6e975ad1760cf6149fc0be0fea2d413174922cdca4a09657fe",
+    "val": "83028b3cfe7f63c5eadfb482b554e26bf5d0f1dadea36b39884b22e28eb4ba3b",
+    "calib": "e20a20879c6775f65cafb292602e5362b044ee15dfd7f137e833acad97099af6",
+    "test": "11d7f1eed7b3314c2957c37c6cb59abaa3a7962792e190713a537f796cd0ee63"
+  },
+  "sources": {
+    "wcp": {
+      "url": "https://downloads.openappsec.io/waf-comparison-project/legitimate.zip",
+      "license": "Apache-2.0",
+      "archive_sha256": "58faee18c54229759287a574f6f8cb1e3b951fa135e403ea9a679d2b18efd778"
+    },
+    "http_params": {
+      "url": "https://github.com/Morzeux/HttpParamsDataset",
+      "commit": "926670a710283f87c05b554680facf3f9530548c",
+      "license": "MIT",
+      "csv_sha256": "a4e62ba13435ad3dd583c5790db2175629020fc41c56e1b26baa02a9ae45f03d"
+    },
+    "crs": {
+      "url": "https://github.com/coreruleset/coreruleset",
+      "commit": "af76ccfcd1ad947e38ef9998bdd464f1a39fef86"
+    },
+    "legacy_csic": {
+      "commit": "424c6e1c1951570473d9d6c0227eaaac6fdd6d02",
+      "previously_viewed_test_reused_only_as_training": true
+    }
+  },
+  "payload_families": {
+    "SQL注入": 9340,
+    "XSS": 531,
+    "路径遍历": 138,
+    "其他攻击": 350
+  },
+  "test_site_count": 55,
+  "test_minimums_met": true,
+  "redaction_version": "http-canonical-head-tail-v2",
+  "legacy_cap": {
+    "normal_per_site": 100,
+    "attack_per_site_type": 500
+  },
+  "publication_redaction_version": "credential-and-identifier-v1",
+  "original_training_data_sha256": {
+    "train": "52f88c20a0874bf6bc84a0b1362a50ffbaf84987fa36ac7ad3c5ce36c09fe624",
+    "val": "78fbbe5a033285f5a96210330671e71d929298283f3add6d93e7127aa3223592",
+    "calib": "501179b6c55a08c45d2859bd9071fb1e95377f79172ec15bdaee730b5d4fd64b",
+    "test": "aeb0730f7ccb383c9951326ec61a07a80b9f9af394c585cd9d2708d3b9469c13"
+  },
+  "original_training_counts": {
+    "train": {
+      "rows": 22516,
+      "normal": 16662,
+      "SQL注入": 1827,
+      "XSS": 1737,
+      "路径遍历": 443,
+      "其他攻击": 1847
+    },
+    "val": {
+      "rows": 4076,
+      "normal": 3313,
+      "SQL注入": 229,
+      "XSS": 225,
+      "路径遍历": 82,
+      "其他攻击": 227
+    },
+    "calib": {
+      "rows": 3096,
+      "normal": 2558,
+      "SQL注入": 166,
+      "XSS": 164,
+      "路径遍历": 46,
+      "其他攻击": 162
+    },
+    "test": {
+      "rows": 6421,
+      "normal": 5072,
+      "SQL注入": 391,
+      "XSS": 391,
+      "路径遍历": 178,
+      "其他攻击": 389
+    }
+  },
+  "model_training_data_match": false,
+  "omitted_legacy_csic_rows": 1100,
+  "redaction_counts": {
+    "train": {
+      "authorization_json": 1,
+      "bearer": 0,
+      "aws_key": 1,
+      "email": 50,
+      "ipv4": 4693,
+      "credential_field": 1640
+    },
+    "val": {
+      "authorization_json": 11,
+      "bearer": 0,
+      "aws_key": 0,
+      "email": 2,
+      "ipv4": 550,
+      "credential_field": 248
+    },
+    "calib": {
+      "authorization_json": 0,
+      "bearer": 0,
+      "aws_key": 0,
+      "email": 0,
+      "ipv4": 722,
+      "credential_field": 228
+    },
+    "test": {
+      "authorization_json": 0,
+      "bearer": 0,
+      "aws_key": 0,
+      "email": 10,
+      "ipv4": 713,
+      "credential_field": 409
+    }
+  }
+}

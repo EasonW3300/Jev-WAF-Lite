@@ -1,0 +1,10 @@
+{
+  "block_temperature": 1.4939861346304952,
+  "block_bias": -0.06251934215249585,
+  "type_temperature": 1.458338077741104,
+  "threshold": 0.12603080864764163,
+  "max_fpr": 0.01,
+  "fpr": 0.006254886630179828,
+  "recall": 0.9869888475836431,
+  "status": "offline_experiment_only"
+}

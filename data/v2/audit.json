@@ -1,0 +1,108 @@
+{
+  "counts": {
+    "train": {
+      "rows": 21416,
+      "normal": 16562,
+      "SQL注入": 1327,
+      "XSS": 1237,
+      "路径遍历": 443,
+      "其他攻击": 1847
+    },
+    "val": {
+      "rows": 4076,
+      "normal": 3313,
+      "SQL注入": 229,
+      "XSS": 225,
+      "路径遍历": 82,
+      "其他攻击": 227
+    },
+    "calib": {
+      "rows": 3096,
+      "normal": 2558,
+      "SQL注入": 166,
+      "XSS": 164,
+      "路径遍历": 46,
+      "其他攻击": 162
+    },
+    "test": {
+      "rows": 6421,
+      "normal": 5072,
+      "SQL注入": 391,
+      "XSS": 391,
+      "路径遍历": 178,
+      "其他攻击": 389
+    }
+  },
+  "detail": {
+    "train": {
+      "source_counts": {
+        "wcp": 20635,
+        "crs": 145,
+        "crs-rce": 636
+      },
+      "origin_counts": {
+        "source_legitimate": 16562,
+        "synthetic_payload": 4073,
+        "legacy_weak_label": 145,
+        "positive_rule_expectation": 636
+      },
+      "sites": 177,
+      "normal_sites": 177,
+      "synthetic_count": 4073,
+      "unpaired_synthetic": 0,
+      "max_synthetic_per_site_type": 20,
+      "duplicate_ids": 0,
+      "duplicate_texts": 6
+    },
+    "val": {
+      "source_counts": {
+        "wcp": 4076
+      },
+      "origin_counts": {
+        "source_legitimate": 3313,
+        "synthetic_payload": 763
+      },
+      "sites": 35,
+      "normal_sites": 35,
+      "synthetic_count": 763,
+      "unpaired_synthetic": 0,
+      "max_synthetic_per_site_type": 20,
+      "duplicate_ids": 0,
+      "duplicate_texts": 0
+    },
+    "calib": {
+      "source_counts": {
+        "wcp": 3096
+      },
+      "origin_counts": {
+        "source_legitimate": 2558,
+        "synthetic_payload": 538
+      },
+      "sites": 30,
+      "normal_sites": 30,
+      "synthetic_count": 538,
+      "unpaired_synthetic": 0,
+      "max_synthetic_per_site_type": 20,
+      "duplicate_ids": 0,
+      "duplicate_texts": 1
+    },
+    "test": {
+      "source_counts": {
+        "wcp": 6421
+      },
+      "origin_counts": {
+        "source_legitimate": 5072,
+        "synthetic_payload": 1349
+      },
+      "sites": 55,
+      "normal_sites": 55,
+      "synthetic_count": 1349,
+      "unpaired_synthetic": 0,
+      "max_synthetic_per_site_type": 20,
+      "duplicate_ids": 0,
+      "duplicate_texts": 3
+    }
+  },
+  "test_minimums_met": true,
+  "test_is_held_out": true
+}

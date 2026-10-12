@@ -1,0 +1,502 @@
+{
+  "model_version": "bert-security-v2-1791770771",
+  "validation_selection": [
+    0.9777195281782438,
+    0.9879938321542779
+  ],
+  "calibration": {
+    "block": {
+      "support": 3096,
+      "positives": 538,
+      "confusion": {
+        "tp": 531,
+        "fp": 16,
+        "tn": 2542,
+        "fn": 7
+      },
+      "precision": 0.9707495429616088,
+      "recall": 0.9869888475836431,
+      "fpr": 0.006254886630179828,
+      "pr_auc": 0.9968609867065423,
+      "fpr_wilson_95": [
+        0.0038538163755552145,
+        0.01013668982742942
+      ],
+      "brier": 0.004475681593256097,
+      "ece_10": 0.0028594780551166364
+    },
+    "choice": {
+      "known_support": 538,
+      "top1_accuracy": 0.9888475836431226,
+      "end_to_end_recall": 0.9795539033457249,
+      "ece_10": 0.007901020205148358,
+      "by_type": {
+        "SQL注入": {
+          "positive_support": 166,
+          "choice_accuracy": 0.9819277108433735,
+          "end_to_end_recall": 0.9819277108433735,
+          "status": "evaluated"
+        },
+        "XSS": {
+          "positive_support": 164,
+          "choice_accuracy": 1.0,
+          "end_to_end_recall": 0.975609756097561,
+          "status": "evaluated"
+        },
+        "路径遍历": {
+          "positive_support": 46,
+          "choice_accuracy": 1.0,
+          "end_to_end_recall": 1.0,
+          "status": "unsupported"
+        },
+        "其他攻击": {
+          "positive_support": 162,
+          "choice_accuracy": 0.9814814814814815,
+          "end_to_end_recall": 0.9753086419753086,
+          "status": "evaluated"
+        }
+      }
+    },
+    "by_site": {
+      "1800flowers.com": {
+        "support": 140,
+        "positives": 40,
+        "confusion": {
+          "tp": 40,
+          "fp": 6,
+          "tn": 94,
+          "fn": 0
+        },
+        "precision": 0.8695652173913043,
+        "recall": 1.0,
+        "fpr": 0.06,
+        "pr_auc": 1.0
+      },
+      "agoda.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "amazon.com": {
+        "support": 121,
+        "positives": 21,
+        "confusion": {
+          "tp": 21,
+          "fp": 1,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 0.9545454545454546,
+        "recall": 1.0,
+        "fpr": 0.01,
+        "pr_auc": 1.0
+      },
+      "bigcommerce.com": {
+        "support": 6,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 6,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "com.vn": {
+        "support": 103,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "coursera.org": {
+        "support": 121,
+        "positives": 21,
+        "confusion": {
+          "tp": 21,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "ebay.com": {
+        "support": 124,
+        "positives": 24,
+        "confusion": {
+          "tp": 24,
+          "fp": 2,
+          "tn": 98,
+          "fn": 0
+        },
+        "precision": 0.9230769230769231,
+        "recall": 1.0,
+        "fpr": 0.02,
+        "pr_auc": 0.9983333333333333
+      },
+      "fitbit.com": {
+        "support": 2,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "ggpht.com": {
+        "support": 1,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "globo.com": {
+        "support": 113,
+        "positives": 16,
+        "confusion": {
+          "tp": 16,
+          "fp": 0,
+          "tn": 97,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "googleapis.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "gvt1.com": {
+        "support": 34,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 34,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "katespade.com": {
+        "support": 103,
+        "positives": 3,
+        "confusion": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "la-z-boy.com": {
+        "support": 124,
+        "positives": 24,
+        "confusion": {
+          "tp": 20,
+          "fp": 0,
+          "tn": 100,
+          "fn": 4
+        },
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "fpr": 0.0,
+        "pr_auc": 0.9773231477152702
+      },
+      "made-in-china.com": {
+        "support": 108,
+        "positives": 8,
+        "confusion": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "mediafire.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "mi.com": {
+        "support": 144,
+        "positives": 44,
+        "confusion": {
+          "tp": 43,
+          "fp": 0,
+          "tn": 100,
+          "fn": 1
+        },
+        "precision": 1.0,
+        "recall": 0.9772727272727273,
+        "fpr": 0.0,
+        "pr_auc": 0.9899309551208285
+      },
+      "neimanmarcus.com": {
+        "support": 124,
+        "positives": 24,
+        "confusion": {
+          "tp": 24,
+          "fp": 2,
+          "tn": 98,
+          "fn": 0
+        },
+        "precision": 0.9230769230769231,
+        "recall": 1.0,
+        "fpr": 0.02,
+        "pr_auc": 1.0
+      },
+      "nr-data.net": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "optimumnutrition.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "parachutehome.com": {
+        "support": 100,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "potterybarn.com": {
+        "support": 155,
+        "positives": 55,
+        "confusion": {
+          "tp": 54,
+          "fp": 1,
+          "tn": 99,
+          "fn": 1
+        },
+        "precision": 0.9818181818181818,
+        "recall": 0.9818181818181818,
+        "fpr": 0.01,
+        "pr_auc": 0.994976076555024
+      },
+      "proflowers.com": {
+        "support": 167,
+        "positives": 67,
+        "confusion": {
+          "tp": 67,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "pureformulas.com": {
+        "support": 151,
+        "positives": 51,
+        "confusion": {
+          "tp": 51,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "rai.it": {
+        "support": 20,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 20,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "spoonflower.com": {
+        "support": 170,
+        "positives": 71,
+        "confusion": {
+          "tp": 71,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "squarespace.com": {
+        "support": 121,
+        "positives": 21,
+        "confusion": {
+          "tp": 21,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "terminalx.com": {
+        "support": 99,
+        "positives": 0,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 99,
+          "fn": 0
+        },
+        "precision": null,
+        "recall": null,
+        "fpr": 0.0,
+        "pr_auc": null
+      },
+      "wetransfer.com": {
+        "support": 121,
+        "positives": 21,
+        "confusion": {
+          "tp": 21,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0
+        },
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "pr_auc": 1.0
+      },
+      "zazzle.com": {
+        "support": 124,
+        "positives": 24,
+        "confusion": {
+          "tp": 23,
+          "fp": 4,
+          "tn": 96,
+          "fn": 1
+        },
+        "precision": 0.8518518518518519,
+        "recall": 0.9583333333333334,
+        "fpr": 0.04,
+        "pr_auc": 0.9726190476190476
+      }
+    }
+  },
+  "policy": {
+    "block_temperature": 1.4939861346304952,
+    "block_bias": -0.06251934215249585,
+    "type_temperature": 1.458338077741104,
+    "threshold": 0.12603080864764163,
+    "max_fpr": 0.01,
+    "fpr": 0.006254886630179828,
+    "recall": 0.9869888475836431,
+    "status": "offline_experiment_only"
+  },
+  "benchmark": {
+    "steps_observed": 100,
+    "median_seconds_per_update": 1.586356978994445,
+    "estimated_full_seconds": 6700.771879272535,
+    "max_sampled_memory_bytes": 4485464064,
+    "device": "mps",
+    "memory_note": "post-update accelerator sample; not guaranteed instantaneous peak"
+  },
+  "test_used": false
+}

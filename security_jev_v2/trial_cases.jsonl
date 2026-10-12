@@ -1,0 +1,10 @@
+{"id":"normal-product-search","state":"GET /products/search?q=wireless+mouse&page=2 HTTP/1.1\nHost: shop.example.test\nAccept: application/json","expected_block":0,"expected_type":null,"note":"普通商品搜索"}
+{"id":"normal-login","state":"POST /api/session HTTP/1.1\nHost: accounts.example.test\nContent-Type: application/json\n\n{\"email\":\"user@example.test\",\"password\":\"example-secret\"}","expected_block":0,"expected_type":null,"note":"普通登录，密码由预处理遮盖"}
+{"id":"normal-sql-words","state":"GET /docs/search?q=select+from+table HTTP/1.1\nHost: docs.example.test","expected_block":0,"expected_type":null,"note":"困难正常：SQL 词汇用于文档搜索"}
+{"id":"normal-html","state":"POST /api/tickets HTTP/1.1\nHost: help.example.test\nContent-Type: application/json\n\n{\"message\":\"The page shows <b>Save</b> after submitting.\"}","expected_block":0,"expected_type":null,"note":"困难正常：合法 HTML 文本"}
+{"id":"normal-relative-path","state":"GET /static/../images/logo.svg HTTP/1.1\nHost: assets.example.test","expected_block":0,"expected_type":null,"note":"困难正常：可规范化的相对静态路径，需人工核实业务语义"}
+{"id":"sqli-union","state":"GET /api/products?id=42%20UNION%20SELECT%20username,password%20FROM%20users HTTP/1.1\nHost: shop.example.test","expected_block":1,"expected_type":"SQL注入","note":"SQL 注入候选"}
+{"id":"xss-svg","state":"GET /search?q=%3Csvg%20onload%3Dalert%281%29%3E HTTP/1.1\nHost: shop.example.test","expected_block":1,"expected_type":"XSS","note":"XSS 候选"}
+{"id":"traversal-etc","state":"GET /download?file=../../etc/passwd HTTP/1.1\nHost: files.example.test","expected_block":1,"expected_type":"路径遍历","note":"路径遍历候选"}
+{"id":"cmd-injection","state":"POST /tools/ping HTTP/1.1\nHost: admin.example.test\nContent-Type: application/x-www-form-urlencoded\n\nhost=127.0.0.1%3Bwhoami","expected_block":1,"expected_type":"其他攻击","note":"命令注入候选"}
+{"id":"normal-report","state":"GET /reports/export?year=2026&quarter=3&format=csv HTTP/1.1\nHost: analytics.example.test","expected_block":0,"expected_type":null,"note":"普通报表下载"}

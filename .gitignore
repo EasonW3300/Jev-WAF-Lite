@@ -1,0 +1,13 @@
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+.DS_Store
+.pytest_cache/
+security_data/raw/
+data/generated/
+artifacts/*/model.pt
+artifacts/*/preflight.json
+release-assets/
+docs/forum-post.md
+docs/http-security-bert-v2-architecture.md

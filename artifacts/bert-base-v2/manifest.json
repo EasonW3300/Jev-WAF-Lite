@@ -1,0 +1,168 @@
+{
+  "model_version": "bert-security-v2-1791770771",
+  "model_source": "google-bert/bert-base-cased",
+  "encoder_initialization": "original_pretrained_bert",
+  "max_length": 512,
+  "selected_epoch": 3,
+  "selected_step": 4224,
+  "benchmark": {
+    "steps_observed": 100,
+    "median_seconds_per_update": 1.586356978994445,
+    "estimated_full_seconds": 6700.771879272535,
+    "max_sampled_memory_bytes": 4485464064,
+    "device": "mps",
+    "memory_note": "post-update accelerator sample; not guaranteed instantaneous peak"
+  },
+  "preflight": {
+    "train": {
+      "tokens": {
+        "rows": 22516,
+        "p50_tokens": 130,
+        "p95_tokens": 2713,
+        "max_tokens": 38451,
+        "truncated": 5816,
+        "unknown_tokens": 6211,
+        "min_retained_ratio": 0.013263634235780603
+      },
+      "labels": {
+        "normal": 16662,
+        "SQL注入": 1827,
+        "XSS": 1737,
+        "其他攻击": 1847,
+        "路径遍历": 443
+      }
+    },
+    "val": {
+      "tokens": {
+        "rows": 4076,
+        "p50_tokens": 177,
+        "p95_tokens": 3247,
+        "max_tokens": 35612,
+        "truncated": 1333,
+        "unknown_tokens": 845,
+        "min_retained_ratio": 0.014321015388071437
+      },
+      "labels": {
+        "normal": 3313,
+        "SQL注入": 229,
+        "XSS": 225,
+        "路径遍历": 82,
+        "其他攻击": 227
+      }
+    },
+    "calib": {
+      "tokens": {
+        "rows": 3096,
+        "p50_tokens": 118,
+        "p95_tokens": 2586,
+        "max_tokens": 32754,
+        "truncated": 712,
+        "unknown_tokens": 489,
+        "min_retained_ratio": 0.015570617329181169
+      },
+      "labels": {
+        "normal": 2558,
+        "SQL注入": 166,
+        "XSS": 164,
+        "其他攻击": 162,
+        "路径遍历": 46
+      }
+    }
+  },
+  "training": {
+    "batch_size": 4,
+    "accum": 4,
+    "epochs": 3,
+    "encoder_lr": 2e-05,
+    "head_lr": 0.0001,
+    "planned_updates": 4224,
+    "seed": 42,
+    "gradient_checkpointing": true,
+    "length_bucketing": {
+      "pool_size": 512
+    },
+    "evaluation_batch_size": 16
+  },
+  "data_sha256": {
+    "train": "52f88c20a0874bf6bc84a0b1362a50ffbaf84987fa36ac7ad3c5ce36c09fe624",
+    "val": "78fbbe5a033285f5a96210330671e71d929298283f3add6d93e7127aa3223592",
+    "calib": "501179b6c55a08c45d2859bd9071fb1e95377f79172ec15bdaee730b5d4fd64b",
+    "test": "aeb0730f7ccb383c9951326ec61a07a80b9f9af394c585cd9d2708d3b9469c13"
+  },
+  "data_summary": {
+    "counts": {
+      "train": {
+        "rows": 22516,
+        "normal": 16662,
+        "SQL注入": 1827,
+        "XSS": 1737,
+        "路径遍历": 443,
+        "其他攻击": 1847
+      },
+      "val": {
+        "rows": 4076,
+        "normal": 3313,
+        "SQL注入": 229,
+        "XSS": 225,
+        "路径遍历": 82,
+        "其他攻击": 227
+      },
+      "calib": {
+        "rows": 3096,
+        "normal": 2558,
+        "SQL注入": 166,
+        "XSS": 164,
+        "路径遍历": 46,
+        "其他攻击": 162
+      },
+      "test": {
+        "rows": 6421,
+        "normal": 5072,
+        "SQL注入": 391,
+        "XSS": 391,
+        "路径遍历": 178,
+        "其他攻击": 389
+      }
+    },
+    "sources": {
+      "wcp": {
+        "url": "https://downloads.openappsec.io/waf-comparison-project/legitimate.zip",
+        "license": "Apache-2.0",
+        "archive_sha256": "58faee18c54229759287a574f6f8cb1e3b951fa135e403ea9a679d2b18efd778"
+      },
+      "http_params": {
+        "url": "https://github.com/Morzeux/HttpParamsDataset",
+        "commit": "926670a710283f87c05b554680facf3f9530548c",
+        "license": "MIT",
+        "csv_sha256": "a4e62ba13435ad3dd583c5790db2175629020fc41c56e1b26baa02a9ae45f03d"
+      },
+      "crs": {
+        "url": "https://github.com/coreruleset/coreruleset",
+        "commit": "af76ccfcd1ad947e38ef9998bdd464f1a39fef86"
+      },
+      "legacy_csic": {
+        "commit": "424c6e1c1951570473d9d6c0227eaaac6fdd6d02",
+        "previously_viewed_test_reused_only_as_training": true
+      }
+    },
+    "wcp": {
+      "read": 1010980,
+      "invalid_or_oversize": 2244,
+      "max_rows_per_member": 5000,
+      "max_member_bytes": 52428800,
+      "skipped_large_members": 6,
+      "skipped_third_party_requests": 553057,
+      "sites": 304
+    },
+    "redaction_version": "http-canonical-head-tail-v2",
+    "test_minimums_met": true
+  },
+  "format_version": 2,
+  "attack_types": [
+    "SQL注入",
+    "XSS",
+    "路径遍历",
+    "其他攻击"
+  ],
+  "preprocessing_version": "http-canonical-head-tail-v2"
+}
